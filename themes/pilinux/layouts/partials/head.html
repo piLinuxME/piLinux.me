@@ -1,0 +1,33 @@
+{{ "<!-- head -->" | safeHTML }}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+
+    <style type = text/css>
+        .px-6 {
+            padding-top: 4.5rem !important;
+            padding-bottom: 4.5rem !important;
+        }
+        a {color: #000000;}
+        .navbar-nav-text {
+            color: #000000 !important;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+    </style>
+
+    <title>{{ .Site.Title }}&nbsp;|&nbsp;{{ .Title }}</title>
+
+    {{- partial "seo.html" . -}}
+</head>

@@ -1,0 +1,17 @@
+{{ "<!-- breadcrumb -->" | safeHTML }}
+{{ $siteBaseUrlForBreadcrumb := "/" }}
+{{ $urlForBreadcrumb := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+{{ $.Scratch.Set "path" $siteBaseUrlForBreadcrumb }}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li><a href="/">home</a></li>
+        {{ range $index, $element := split $urlForBreadcrumb "/" }}
+        {{ $.Scratch.Add "path" $element }}
+        {{ if $element }}
+        <li>&nbsp;&#8594;&nbsp;<a href='{{ $.Scratch.Get "path" }}/'>{{ . }}</a></li>
+        {{ $.Scratch.Add "path" "/" }}
+        {{ end }}
+        {{ end }}
+    </ol>
+</nav>

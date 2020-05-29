@@ -1,0 +1,103 @@
+{{ "<!-- body -->" | safeHTML }}
+
+<div class="row">
+    <div class="col-lg-4 col-md-4">
+        <h4>
+            learn by doing - a practical approach
+        </h4>
+        <br>
+        <p>
+            All contents are and will be published for the school/university
+            students and enthusiasts who have a passion to develop their
+            technical skills for the real world.
+        </p>
+    </div>
+
+    <div class="col-lg-4 col-md-4">
+        <img src="img.cdn/home/home1.jpg" alt="piLinux.me | learn from the basics and develop your true skills" class="img-fluid">
+    </div>
+
+    <div class="col-lg-4 col-md-4">
+        <ul style="list-style: none;">
+            <h4>
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;Published articles are
+            </h4>
+
+            <li>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>&nbsp;free to access
+            </li>
+            <li>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>&nbsp;being version controlled
+            </li>
+            <li>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>&nbsp;preserved in GitHub repository and
+                safely stored in CERN’s Data Center
+            </li>
+            <li>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>&nbsp;assigned Digital Object Identifiers
+                (DOI) to make them citable and trackable
+            </li>
+        </ul>
+    </div>
+</div>
+<br>
+<br>
+<br>
+
+<div class="row">
+    {{ $urlForArticles := "" }}
+    <div class="col-lg-8 col-md-8">
+    <h4><i class="fa fa-sort-amount-desc" aria-hidden="true"></i>&nbsp;Recent articles</h4>
+    </div>
+
+    <div class="col-lg-6 col-md-6">
+        <ul style="list-style: none;">
+            {{- range ( .Paginate ( last 10 .Site.RegularPages.ByDate )).Pages.Reverse }}
+            {{ $urlForArticles = replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+            <li>
+                <a href="/{{ $urlForArticles }}">
+                    <h6><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;{{ .Title }}</h6>
+                </a>
+                {{ if eq .Lastmod .Date }}
+                {{- partial "published.html" . -}}
+                {{ else }}
+                {{- partial "updated.html" . -}}
+                {{ end }}
+                <br>
+                {{ .Params.synopsis }}
+            </li>
+            <hr>
+            <br>
+            {{- end}}
+        </ul>
+    </div>
+
+    <div class="col-lg-6 col-md-6">
+        <ul style="list-style: none;">
+            {{- range ( after 10 ( .Paginate ( last 20 .Site.RegularPages.ByDate )).Pages.Reverse ) }}
+            {{ $urlForArticles = replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+            <li>
+                <a href="/{{ $urlForArticles }}">
+                    <h6><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;{{ .Title }}</h6>
+                </a>
+                {{ if eq .Lastmod .Date }}
+                {{- partial "published.html" . -}}
+                {{ else }}
+                {{- partial "updated.html" . -}}
+                {{ end }}
+                <br>
+                {{ .Params.synopsis }}
+            </li>
+            <hr>
+            <br>
+            {{- end}}
+        </ul>
+    </div>
+</div>
+<br>
+
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        {{ .Content }}
+    </div>
+</div>

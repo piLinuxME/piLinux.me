@@ -1,0 +1,40 @@
+{{ "<!-- seo -->" | safeHTML }}
+{{ $seoUrlFull := .Site.Params.seoBaseUrl }}
+
+{{ $seoImageS := (printf "%s%s%s" .Site.Params.cdnForImage "home/" .Params.seoImageS) }}
+{{ $seoImageL := (printf "%s%s%s" .Site.Params.cdnForImage "home/" .Params.seoImageL) }}
+
+<!-- Schema.org markup for search engines -->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebPage",
+        "name": "{{ .Site.Title }} | {{ .Title }}",
+        "description": "{{ .Params.synopsis }}",
+        "publisher": {
+            "@type": "Organization",
+            "name": "piLinux",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{ .Site.Params.seoBaseUrl }}/favicon/android-chrome-192x192.png"
+            }
+        },
+        "license": "{{ .Params.license }}"
+    }
+</script>
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="{{ $seoImageL }}">
+<meta name="twitter:site" content="@piLinuxME"> <!-- Twitter @username -->
+<meta name="twitter:creator" content="@piLinuxME">
+<meta name="twitter:title" content="{{ .Site.Title }} | {{ .Title }}">
+<meta name="twitter:description" content="{{ .Params.synopsis }}">
+<meta name="twitter:image" content="{{ $seoImageS }}">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ $seoUrlFull }}">
+<meta property="og:image" content="{{ $seoImageS }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:description" content="{{ .Params.synopsis }}">

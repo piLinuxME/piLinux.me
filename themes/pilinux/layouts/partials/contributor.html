@@ -1,0 +1,7 @@
+{{ "<!-- contributor -->" | safeHTML }}
+
+<kbd>Contributor</kbd>
+{{ range $j, $contributor := .Params.contributor }}
+{{ if $j }}| {{ end }}
+{{ $contributor }}
+{{ end }}

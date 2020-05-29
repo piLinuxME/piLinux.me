@@ -1,0 +1,27 @@
+baseURL = "/"
+title = "piLinux.me"
+languageCode = "en-us"
+theme = "pilinux"
+relativeURLs = true
+minify = true
+pluralizeListTitles = false
+
+[Params]
+seoBaseUrl = "https://pilinux.me"
+githubContent = "https://github.com/piLinuxME/piLinux.me/edit/master/content"
+cdnForImage = "https://raw.githubusercontent.com/piLinuxME/piLinux.me/master/static/img.cdn/"
+
+# Enable for syntax highlighting
+pygmentsUseClasses=true
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = true
+    style = "xcode"
+    tabWidth = 4

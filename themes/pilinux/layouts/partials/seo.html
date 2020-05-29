@@ -1,0 +1,80 @@
+{{ "<!-- seo -->" | safeHTML }}
+{{ $seoUrl := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+{{ $seoUrlFull := (printf "%s/%s" .Site.Params.seoBaseUrl $seoUrl) }}
+
+{{ $seoImageS := (printf "%s%s%s" .Site.Params.cdnForImage $seoUrl .Params.seoImageS) }}
+{{ $seoImageL := (printf "%s%s%s" .Site.Params.cdnForImage $seoUrl .Params.seoImageL) }}
+
+{{ $datePublished := .Date.Format "Monday, Jan 2, 2006" }}
+{{ $dateModified := "" }}
+{{ if ne .Lastmod .Date }}
+{{ $dateModified = .Lastmod.Format "Monday, Jan 2, 2006" }}
+{{ else }}
+{{ $dateModified = .Date.Format "Monday, Jan 2, 2006" }}
+{{ end }}
+
+<!-- Schema.org markup for search engines -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "articleSection": "{{ .Params.seoArticleSection }}",
+        "name": "{{ .Site.Title }} | {{ .Title }}",
+        "headline": "{{ .Site.Title }} | {{ .Title }}",
+        "description": "{{ .Params.synopsis }}",
+        "image": "{{ $seoImageS }}",
+        "datePublished": "{{ $datePublished }}",
+        "dateModified": "{{ $dateModified }}",
+        "url": "{{ $seoUrlFull }}",
+        {{ if .Params.doi }}
+        "sameAs": "https://doi.org/{{ .Params.doi }}",
+        {{ end }}
+        "license": "{{ .Params.license }}",
+        "version": {{ .Params.version }},
+        "wordCount": {{ .WordCount }},
+        {{ if .Params.reference }}
+        "citation": [ {{ range $i, $citation := .Params.reference }}{{ if $i }}, {{ end }}{{ $citation }}{{ end }} ],
+        {{ end }}
+        "author": {
+            "@type": "Person",
+            "name": [ {{ range $j, $author := .Params.author }}{{ if $j }}, {{ end }}{{ $author }}{{ end }} ]
+        },
+        {{ if .Params.contributor}}
+        "contributor": {
+            "@type": "Person",
+            "name": [ {{ range $k, $contributor := .Params.contributor }}{{ if $k }}, {{ end }}{{ $contributor }}{{ end }} ]
+        },
+        {{ end }}
+        "publisher": {
+            "@type": "Organization",
+            "name": "piLinux",
+            "logo": {
+                "@type":"ImageObject",
+                "url": "{{ .Site.Params.seoBaseUrl }}/favicon/android-chrome-192x192.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ $seoUrlFull }}"
+        }
+    }
+</script>
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="{{ $seoImageL }}">
+<meta name="twitter:site" content="@piLinuxME"> <!-- Twitter @username -->
+<meta name="twitter:creator" content="@piLinuxME">
+<meta name="twitter:title" content="{{ .Site.Title }} | {{ .Title }}">
+<meta name="twitter:description" content="{{ .Params.synopsis }}">
+<meta name="twitter:image" content="{{ $seoImageS }}">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ $seoUrlFull }}">
+<meta property="og:image" content="{{ $seoImageS }}">
+<meta property="og:description" content="{{ .Params.synopsis }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="article:published_time" content="{{ $datePublished }}">
+<meta property="article:modified_time" content="{{ $dateModified }}">
+<meta property="article:section" content="{{ .Params.seoArticleSection }}">

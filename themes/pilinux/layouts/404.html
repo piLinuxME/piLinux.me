@@ -1,0 +1,28 @@
+{{ define "head" }}
+{{- partial "head.html" . -}}
+{{ end }}
+
+{{ define "header" }}
+{{- partial "headerHome.html" . -}}
+{{ end }}
+
+{{ define "main" }}
+<div class="container px-6">
+    {{ "<!-- headline -->" | safeHTML }}
+    <div class="row justify-content-center">
+        <div>
+            <p>
+            <h3>{{ .Title }}</h3>
+            </p>
+            <hr>
+            <br>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div>
+            {{- partial "404.html" . -}}
+        </div>
+    </div>
+</div>
+{{ end }}

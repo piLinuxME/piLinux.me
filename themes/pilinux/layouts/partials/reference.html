@@ -1,0 +1,10 @@
+{{ "<!-- citation / references -->" | safeHTML }}
+
+<kbd>Reference</kbd>
+<br>
+<br>
+<ul class="list-unstyled">
+    {{ range $reference := .Params.reference }}
+    <li><i class="fa fa-book" aria-hidden="true"></i>&nbsp;{{ $reference }}</li>
+    {{ end }}
+</ul>

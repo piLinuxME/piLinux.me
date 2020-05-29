@@ -1,0 +1,7 @@
+{{ "<!-- article author -->" | safeHTML }}
+
+<kbd>Author</kbd>
+{{ range $i, $author := .Params.author }}
+{{ if $i }}| {{ end }}
+{{ $author }}
+{{ end }}

@@ -1,0 +1,62 @@
+{{ define "head" }}
+{{- partial "head.html" . -}}
+{{ end }}
+
+{{ define "header" }}
+{{- partial "header.html" . -}}
+{{ end }}
+
+{{ define "main" }}
+<div class="container px-6">
+    {{- partial "title.html" . -}}
+
+    <div class="row">
+        <div class="col-lg-3 col-md-4">
+            {{- partial "nav.html" . -}}
+        </div>
+
+        <div class="col-lg-9 col-md-8">
+            {{- partial "breadcrumb.html" . -}}
+
+            <p>
+                {{ if .Params.author }}
+                {{- partial "author.html" . -}}
+                <br>
+                {{ end }}
+
+                {{ if .Params.contributor }}
+                {{- partial "contributor.html" . -}}
+                <br>
+                {{ end }}
+
+                {{- partial "published.html" . -}}
+                <br>
+
+                {{ if ne .Lastmod .Date }}
+                {{- partial "updated.html" . -}}
+                <br>
+                {{ end }}
+
+                {{ if .Params.doi }}
+                {{ if in .Params.doi "zenodo" }}
+                {{- partial "doiZenodo.html" . -}}
+                {{ end }}
+                <br>
+                {{ end }}
+            </p>
+            <hr>
+
+            {{ .Content }}
+            <hr>
+
+            {{ if .Params.reference }}
+            {{- partial "reference.html" . -}}
+            <hr>
+            {{ end }}
+
+            {{- partial "commentGithubIssue.html" . -}}
+
+        </div>
+    </div>
+</div>
+{{ end }}

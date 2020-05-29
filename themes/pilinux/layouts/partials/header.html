@@ -1,0 +1,35 @@
+{{ "<!-- top navbar -->" | safeHTML }}
+{{ $currentTopic := .Params.topic }}
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-white">
+    <div class="container">
+        <a href="/" class="navbar-brand">{{ .Site.Title }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav">
+                {{ range .Site.Data.siteMenu.menu }}
+                <li class="nav-item dropdown">
+                    <a class="nav-link navbar-nav-text" data-toggle="dropdown" href="#" id='{{ replace .title " " "-" | lower }}'>
+                        <i class="fa fa-{{ .icon }}" aria-hidden="true"></i>&nbsp;{{ .title }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby='{{ replace .title " " "-" | lower }}'>
+                        {{ range .sub }}
+                        {{ if eq .title $currentTopic }}
+                        <a class="dropdown-item navbar-nav-text" href='/{{ replace .title " " "-" | lower }}/'>
+                            <i class="fa fa-folder-open-o" aria-hidden="true"></i>&nbsp;{{ .title }}
+                        </a>
+                        {{ else }}
+                        <a class="dropdown-item navbar-nav-text" href='/{{ replace .title " " "-" | lower }}/'>
+                            <i class="fa fa-folder-o" aria-hidden="true"></i>&nbsp;{{ .title }}
+                        </a>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+</div>

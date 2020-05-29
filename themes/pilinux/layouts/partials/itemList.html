@@ -1,0 +1,19 @@
+{{ "<!-- body -->" | safeHTML }}
+{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+{{ $topic := (substr $url 0 -1) | humanize }}
+
+<ul style="list-style: none;">
+    {{ range .Pages }}
+    {{ if eq (.Params.topic | humanize) $topic }}
+    {{ $pageUrl := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+    {{ $pageUrlFull := (printf "/%s" $pageUrl) }}
+    <li>
+        {{ if eq .Lastmod .Date }}
+        {{- partial "published.html" . -}}&nbsp;&nbsp;<a href="{{ $pageUrlFull }}">{{ .Title }} </a>
+        {{ else }}
+        {{- partial "updated.html" . -}}&nbsp;&nbsp;<a href="{{ $pageUrlFull }}">{{ .Title }} </a>
+        {{ end }}
+    </li>
+    {{ end }}
+    {{ end }}
+</ul>

@@ -1,0 +1,5 @@
+{{ "<!-- next version -->" | safeHTML }}
+
+<a href='{{ printf "%s-v%s/" (substr .RelPermalink 0 -1) (string .Params.nextVersion) }}' type="button" class="btn btn-outline-dark btn-sm">
+    <i class="fa fa-bell-o" aria-hidden="true"></i>&nbsp;check v{{ .Params.nextVersion }}
+</a>

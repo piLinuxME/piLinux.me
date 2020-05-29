@@ -1,0 +1,19 @@
+{{ "<!-- headline -->" | safeHTML }}
+
+<div class="row">
+    <div class="col-md-12">
+        <p>
+        <h3>
+            {{ .Title }}
+            {{ if .Params.nextVersion }}
+            {{- partial "version.html" . -}}
+            {{ end }}
+        </h3>
+        <a href='{{ printf "%s%s.md" .Site.Params.githubContent (substr .RelPermalink 0 -1) }}' target="_blank">
+            <i class="fa fa-github" aria-hidden="true"></i>&nbsp;Edit
+        </a>
+        </p>
+        <hr>
+        <br>
+    </div>
+</div>

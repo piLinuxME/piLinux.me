@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/pilinux
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://pilinux.me
+  * I am pilinux (https://keybase.io/pilinux) on keybase.
+  * I have a public key ASCFDXaih7saw1LyTW1vG-j_mfsBBcMxeHFHGETdtoxYcQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012044f15f5abbc5bd3e36e5753d1a4ea68e8a7b11a13f8389c524319a43d1193a7f0a",
+      "host": "keybase.io",
+      "kid": "0120850d76a287bb1ac352f24d6d6f1be8ff99fb0105c3317871471844ddb68c58710a",
+      "uid": "ff17bc31af389c05cb2b02387c46e419",
+      "username": "pilinux"
+    },
+    "merkle_root": {
+      "ctime": 1544212548,
+      "hash": "1bed8c91653fe69c4e60d309c7b300df263db4b58792ab41bff76a93ceab184df6049f45ed0aad0fde78841a673a82e0a2a3437e20a79fbfa391af63219a86ef",
+      "hash_meta": "f5a2e2515219147d259f70cd112839360e451f820d2b6e91d19c68d9883dce56",
+      "seqno": 4073944
+    },
+    "service": {
+      "entropy": "r4UEEZUHysEUF0j0NCoDQ1/d",
+      "hostname": "pilinux.me",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "2.11.0"
+  },
+  "ctime": 1544212604,
+  "expire_in": 504576000,
+  "prev": "380014ee006cc9565ea760bb3b8422d1d4f80f8b43c6e9c9751dcdd992173daf",
+  "seqno": 15,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEghQ12ooe7GsNS8k1tbxvo/5n7AQXDMXhxRxhE3baMWHEKp3BheWxvYWTESpcCD8QgOAAU7gBsyVZep2C7O4Qi0dT4D4tDxunJdR3N2ZIXPa/EIHXl8FN+56EcvILqWtlN+TuH5oMNXp70bgnSMGKAGdzxAgHCo3NpZ8RAAArm9hURSSItlaFztLnUWIvtMyVolfRi70XmoRpqRvOtjBHyeA30pLjUhTtOogTSXQ5gQL0q9lbTmUE1R9ZFDahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEILmOzzwbl6XRMyTZ/Vv6Ad6HbPxz9LHPE7WUQ6DMbOBDo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/pilinux
+
+==================================================================
