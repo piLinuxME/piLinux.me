@@ -1,6 +1,5 @@
 {{ "<!-- top navbar -->" | safeHTML }}
-{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-{{ $topic := (substr $url 0 -1) | humanize }}
+{{ $topic := .Title | humanize }}
 
 <div class="navbar navbar-expand-lg fixed-top navbar-light bg-white">
     <div class="container">
@@ -17,7 +16,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby='{{ replace .title " " "-" | lower }}'>
                         {{ range .sub }}
-                        {{ if eq .title $topic }}
+                        {{ if eq ( .title | humanize ) $topic }}
                         <a class="dropdown-item navbar-nav-text" href='/{{ replace .title " " "-" | lower }}/'>
                             <i class="fa fa-folder-open-o" aria-hidden="true"></i>&nbsp;{{ .title }}
                         </a>

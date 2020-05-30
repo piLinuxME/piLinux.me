@@ -1,6 +1,5 @@
 {{ "<!-- body -->" | safeHTML }}
-{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-{{ $topic := (substr $url 0 -1) | humanize }}
+{{ $topic := .Title | humanize }}
 
 <ul style="list-style: none;">
     {{ range .Pages }}

@@ -5,15 +5,15 @@
 {{ $seoImageS := (printf "%s%s%s" .Site.Params.cdnForImage $seoUrl "img-s.jpg") }}
 {{ $seoImageL := (printf "%s%s%s" .Site.Params.cdnForImage $seoUrl "img-l.jpg") }}
 
-{{ $categories := (substr $seoUrl 0 -1) | humanize }}
+{{ $topic := ( humanize .Title ) | title }}
 
 <!-- Schema.org markup for search engines -->
 <script type="application/ld+json">
     {
     "@context": "http://schema.org",
     "@type": "WebPage",
-    "name": "{{ .Site.Title }} | {{ $categories }}",
-    "description": "Table of contents - {{ $categories }}",
+    "name": "{{ .Site.Title }} | {{ $topic }}",
+    "description": "Table of Contents - {{ $topic }}",
     "publisher": {
     "@type": "Organization",
     "name": "piLinux",
@@ -30,14 +30,14 @@
 <meta name="twitter:card" content="{{ $seoImageL }}">
 <meta name="twitter:site" content="@piLinuxME"> <!-- Twitter @username -->
 <meta name="twitter:creator" content="@piLinuxME">
-<meta name="twitter:title" content="{{ .Site.Title }} | {{ $categories }}">
-<meta name="twitter:description" content="Table of contents - {{ $categories }}">
+<meta name="twitter:title" content="{{ .Site.Title }} | {{ $topic }}">
+<meta name="twitter:description" content="Table of Contents - {{ $topic }}">
 <meta name="twitter:image" content="{{ $seoImageS }}">
 
 <!-- Open Graph data -->
-<meta property="og:title" content="{{ $categories }}">
+<meta property="og:title" content="{{ $topic }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ $seoUrlFull }}">
 <meta property="og:image" content="{{ $seoImageS }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
-<meta property="og:description" content="Table of contents - {{ $categories }}">
+<meta property="og:description" content="Table of Contents - {{ $topic }}">

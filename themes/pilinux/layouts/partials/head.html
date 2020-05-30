@@ -29,5 +29,7 @@
 
     <title>{{ .Site.Title }}&nbsp;|&nbsp;{{ .Title }}</title>
 
+    {{ if ne .Title "404 Page not found" }}
     {{- partial "seo.html" . -}}
+    {{ end }}
 </head>

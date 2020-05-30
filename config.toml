@@ -5,6 +5,7 @@ theme = "pilinux"
 relativeURLs = true
 minify = true
 pluralizeListTitles = false
+disableKinds = [ "taxonomy", "taxonomyTerm" ]
 
 [Params]
 seoBaseUrl = "https://pilinux.me"

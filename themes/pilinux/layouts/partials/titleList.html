@@ -1,12 +1,11 @@
 {{ "<!-- headline -->" | safeHTML }}
-{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-{{ $categories := (substr $url 0 -1) | humanize }}
+{{ $topic := ( humanize .Title ) | title }}
 
 <div class="row">
     <div class="col-md-12">
         <p>
         <h3>
-        <i class="fa fa-bookmark" aria-hidden="true"></i>&nbsp;Table of contents - {{ $categories }}
+        <i class="fa fa-bookmark" aria-hidden="true"></i>&nbsp;Table of Contents - {{ $topic }}
         </h3>
         <hr>
         <br>
