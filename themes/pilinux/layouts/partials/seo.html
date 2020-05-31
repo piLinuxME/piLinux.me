@@ -60,6 +60,14 @@
     }
 </script>
 
+<!-- Meta description -->
+<meta name="description" content="{{ .Params.synopsis }}">
+
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="{{ .Site.Title }} | {{ .Title }}">
+<meta itemprop="description" content="{{ .Params.synopsis }}">
+<meta itemprop="image" content="{{ $seoImageS }}">
+
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="{{ $seoImageL }}">
 <meta name="twitter:site" content="@piLinuxME"> <!-- Twitter @username -->
