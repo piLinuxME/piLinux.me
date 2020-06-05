@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" {{ if ne .Title "404 Page not found" }}itemscope itemtype="http://schema.org/Article"{{ end }}>
 {{- block "head" . }}{{- end }}
 <body>
 {{- block "header" . }}{{- end }}
