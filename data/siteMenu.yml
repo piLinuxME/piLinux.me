@@ -11,10 +11,10 @@ menu:
 #      - title:
 #      - title:
 
-#  - title: Programming
-#    icon: code
-#    sub:
-#      - title:
+  - title: Programming
+    icon: code
+    sub:
+      - title: Hugo
 #      - title:
 
 #  - title: Cloud
