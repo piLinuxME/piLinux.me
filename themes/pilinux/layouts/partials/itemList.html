@@ -4,8 +4,7 @@
 <ul style="list-style: none;">
     {{ range .Pages }}
     {{ if eq (.Params.topic | humanize) $topic }}
-    {{ $pageUrl := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-    {{ $pageUrlFull := (printf "/%s" $pageUrl) }}
+    {{ $pageUrlFull := .RelPermalink }}
     <li>
         {{ if eq .Lastmod .Date }}
         {{- partial "published.html" . -}}&nbsp;&nbsp;<a href="{{ $pageUrlFull }}">{{ .Title }} </a>

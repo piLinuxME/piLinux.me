@@ -53,9 +53,9 @@
     <div class="col-lg-6 col-md-6">
         <ul style="list-style: none;">
             {{- range ( .Paginate ( last 10 .Site.RegularPages.ByDate )).Pages.Reverse }}
-            {{ $urlForArticles = replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+            {{ $urlForArticles = .RelPermalink }}
             <li>
-                <a href="/{{ $urlForArticles }}">
+                <a href="{{ $urlForArticles }}">
                     <h6><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;{{ .Title }}</h6>
                 </a>
                 {{ if eq .Lastmod .Date }}
@@ -75,9 +75,9 @@
     <div class="col-lg-6 col-md-6">
         <ul style="list-style: none;">
             {{- range ( after 10 ( .Paginate ( last 20 .Site.RegularPages.ByDate )).Pages.Reverse ) }}
-            {{ $urlForArticles = replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+            {{ $urlForArticles = .RelPermalink }}
             <li>
-                <a href="/{{ $urlForArticles }}">
+                <a href="{{ $urlForArticles }}">
                     <h6><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;{{ .Title }}</h6>
                 </a>
                 {{ if eq .Lastmod .Date }}

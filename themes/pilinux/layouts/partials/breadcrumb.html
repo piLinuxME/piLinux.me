@@ -1,6 +1,6 @@
 {{ "<!-- breadcrumb -->" | safeHTML }}
 {{ $siteBaseUrlForBreadcrumb := "/" }}
-{{ $urlForBreadcrumb := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+{{ $urlForBreadcrumb := .RelPermalink }}
 {{ $.Scratch.Set "path" $siteBaseUrlForBreadcrumb }}
 
 <nav aria-label="breadcrumb">

@@ -1,12 +1,11 @@
 {{ "<!-- side nav -->" | safeHTML }}
 {{ $activeArticleForNav := .Title }}
-{{ $siteBaseUrlForNav := "/" }}
 {{ $urlForNav := "" }}
 {{ $navFontAwesome := "" }}
 
 <ul class="list-group">
     {{ range where .Site.RegularPages "Params.topic" .Params.topic }}
-    {{ $urlForNav = replace .Permalink ( printf "%s" .Site.BaseURL ) "" }}
+    {{ $urlForNav = .RelPermalink }}
     {{ if eq .Title $activeArticleForNav }}
     {{ $navFontAwesome = "fa-long-arrow-right" }}
     <li class="list-group-item py-2 list-group-item-primary">
@@ -14,7 +13,7 @@
         {{ $navFontAwesome = "fa-file-text-o" }}
     <li class="list-group-item py-2">
         {{ end}}
-        <a href="{{ $siteBaseUrlForNav }}{{ $urlForNav }}">
+        <a href="{{ $urlForNav }}">
             <i class="fa {{ $navFontAwesome }}" aria-hidden="true"></i>&nbsp;{{ .Title }}
         </a>
     </li>
