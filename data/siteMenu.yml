@@ -14,8 +14,8 @@ menu:
   - title: Programming
     icon: code
     sub:
+      - title: Golang
       - title: Hugo
-#      - title:
 
 #  - title: Cloud
 #    icon: server
