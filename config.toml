@@ -9,7 +9,7 @@ disableKinds = [ "taxonomy", "taxonomyTerm" ]
 
 [Params]
 seoBaseUrl = "https://pilinux.me"
-githubContent = "https://github.com/piLinuxME/piLinux.me/edit/master/content"
+githubContent = "https://github.com/piLinuxME/piLinux.me/blob/master/content"
 cdnForImage = "https://raw.githubusercontent.com/piLinuxME/piLinux.me/master/static/img.cdn/"
 
 # Enable for syntax highlighting
